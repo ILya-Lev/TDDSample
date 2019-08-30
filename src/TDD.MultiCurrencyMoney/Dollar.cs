@@ -2,16 +2,10 @@
 {
     public class Dollar
     {
-        public int Amount { get; private set; }
+        public int Amount { get; }
 
-        public Dollar(int amount)
-        {
-            Amount = amount;
-        }
-        
-        public void Times(int factor)
-        {
-            Amount *= factor;
-        }
+        public Dollar(int amount) => Amount = amount;
+
+        public Dollar Times(int factor) => new Dollar(Amount * factor);
     }
 }
