@@ -1,2 +1,2 @@
 # TDDSample
-sample solution created with TDD practive
+sample solution created with TDD practice
