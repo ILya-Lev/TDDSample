@@ -13,5 +13,13 @@ namespace TDD.MultiCurrencyMoney.Tests
             five.Times(3).Equals(new Franc(15)).Should().BeTrue();
         }
 
+        [Fact]
+        public void Equals_DollarOfTheSameNote_False()
+        {
+            var franc = new Franc(5);
+            var dollar = new Dollar(5);
+            franc.Equals(dollar).Should().BeFalse();
+        }
+
     }
 }

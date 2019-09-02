@@ -1,26 +1,16 @@
 ﻿namespace TDD.MultiCurrencyMoney
 {
-    public class Dollar
+    public class Dollar : Money
     {
-        private int Amount { get; }
-
         public Dollar(int amount) => Amount = amount;
 
         public Dollar Times(int factor) => new Dollar(Amount * factor);
 
-        public override bool Equals(object other)
+        protected override bool Equals<TMoney>(TMoney other)
         {
-            if (object.ReferenceEquals(this, other)) return true;
-            if (other == null) return false;
-
-            if (other is Dollar otherDollar)
-                return this.Amount == otherDollar.Amount;
+            if (other is Dollar dollar)
+                return Amount == dollar.Amount;
             return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
     }
 }

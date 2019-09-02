@@ -1,26 +1,16 @@
 ﻿namespace TDD.MultiCurrencyMoney
 {
-    public class Franc
+    public class Franc : Money
     {
-        private int Amount { get; }
-
         public Franc(int amount) => Amount = amount;
 
         public Franc Times(int factor) => new Franc(Amount * factor);
 
-        public override bool Equals(object other)
+        protected override bool Equals<TMoney>(TMoney other)
         {
-            if (object.ReferenceEquals(this, other)) return true;
-            if (other == null) return false;
-
-            if (other is Franc otherFranc)
-                return this.Amount == otherFranc.Amount;
+            if (other is Franc franc)
+                return Amount == franc.Amount;
             return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
     }
 }
