@@ -2,11 +2,22 @@
 {
     public abstract class Money
     {
-        public static Money Franc(int amount) => new Franc(amount);
-        public static Money Dollar(int amount) => new Dollar(amount);
+        protected int Amount;
+        protected string Currency;
+
+        protected Money(int amount, string currency)
+        {
+            Amount = amount;
+            Currency = currency;
+        }
+
+        public static Money CreateFranc(int amount) => new Franc(amount, "CHF");
+        public static Money CreateDollar(int amount) => new Dollar(amount, "USD");
+
+        public string GetCurrency() => Currency;
 
         public abstract Money Times(int factor);
-
+        
         public sealed override bool Equals(object other)
         {
             if (object.ReferenceEquals(this, other)) return true;
@@ -23,8 +34,5 @@
         {
             return base.GetHashCode();
         }
-
-        protected int Amount;
-
     }
 }
