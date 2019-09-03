@@ -8,8 +8,8 @@ namespace TDD.MultiCurrencyMoney.Tests
         [Fact]
         public void Currency_MatchExpectations_()
         {
-            Money.CreateDollar(1).GetCurrency().Should().Be("USD");
-            Money.CreateFranc(1).GetCurrency().Should().Be("CHF");
+            Money.CreateDollar(1).Currency.Should().Be("USD");
+            Money.CreateFranc(1).Currency.Should().Be("CHF");
         }
     }
 }
