@@ -14,15 +14,6 @@ namespace TDD.MultiCurrencyMoney.Tests
         }
 
         [Fact]
-        public void Equals_AnotherInstanceOfTheSameValue_True()
-        {
-            var five = Money.CreateDollar(5);
-            var anotherFive = Money.CreateDollar(5);
-
-            five.Equals(anotherFive).Should().BeTrue();
-        }
-
-        [Fact]
         public void Equals_AnotherInstanceOfDifferentValue_False()
         {
             var five = Money.CreateDollar(5);
@@ -45,6 +36,14 @@ namespace TDD.MultiCurrencyMoney.Tests
             var five = Money.CreateDollar(5);
 
             five.Equals(new object()).Should().BeFalse();
+        }
+
+        [Fact]
+        public void Equals_Null_False()
+        {
+            var five = Money.CreateDollar(5);
+
+            five.Equals(null).Should().BeFalse();
         }
     }
 }
