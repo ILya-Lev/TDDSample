@@ -1,6 +1,6 @@
 ﻿namespace TDD.MultiCurrencyMoney
 {
-    public class Money
+    public class Money : Expression
     {
         private readonly int _amount;
         public string Currency { get; }
@@ -31,6 +31,24 @@
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+        
+        public Expression Plus(Money addend)
+        {
+            return new Money(_amount + addend._amount, Currency);
+        }
+    }
+
+    public interface Expression
+    {
+
+    }
+
+    public class Bank
+    {
+        public Money Reduce(Expression expression, string targetCurrency)
+        {
+            return expression as Money;
         }
     }
 }
