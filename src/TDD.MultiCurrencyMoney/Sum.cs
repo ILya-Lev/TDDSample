@@ -13,7 +13,7 @@ namespace TDD.MultiCurrencyMoney
 		public Money Augend { get; }
 		public Money Addend { get; }
 
-		public Money Reduce(string targetCurrency)
+		public Money Reduce(Bank bank, string targetCurrency)
 		{
 			if (Addend.Currency == Augend.Currency
 			    && Addend.Currency == targetCurrency)

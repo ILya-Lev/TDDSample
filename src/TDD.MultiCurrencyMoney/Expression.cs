@@ -2,6 +2,6 @@
 {
 	public interface Expression
 	{
-		Money Reduce(string targetCurrency);
+		Money Reduce(Bank bank, string targetCurrency);
 	}
 }

@@ -50,13 +50,5 @@ namespace TDD.MultiCurrencyMoney.Tests
 			var result = bank.Reduce(Money.CreateDollar(5), "USD");
 			result.Equals(Money.CreateDollar(5)).Should().BeTrue();
 		}
-
-		[Fact]
-		public void Reduce_MoneyDifferentCurrency_ApplyExchangeRate()
-		{
-			var bank = new Bank();
-			var result = bank.Reduce(Money.CreateDollar(5), "CHF");
-			result.Equals(Money.CreateFranc(10)).Should().BeTrue();
-		}
 	}
 }

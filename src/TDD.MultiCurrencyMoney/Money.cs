@@ -1,11 +1,13 @@
-﻿namespace TDD.MultiCurrencyMoney
+﻿using System;
+
+namespace TDD.MultiCurrencyMoney
 {
 	public class Money : Expression
 	{
-		public int Amount { get; }
+		public double Amount { get; }
 		public string Currency { get; }
 
-		public Money(int amount, string currency)
+		public Money(double amount, string currency)
 		{
 			Amount = amount;
 			Currency = currency;
@@ -38,9 +40,9 @@
 			return new Sum(this, addend);
 		}
 
-		public Money Reduce(string targetCurrency)
+		public Money Reduce(Bank bank, string targetCurrency)
 		{
-			return this;
+			return new Money(bank.GetRate(Currency, targetCurrency) * Amount, targetCurrency);
 		}
 	}
 }
