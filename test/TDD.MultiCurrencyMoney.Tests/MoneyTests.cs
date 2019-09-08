@@ -50,5 +50,21 @@ namespace TDD.MultiCurrencyMoney.Tests
 			var result = bank.Reduce(Money.CreateDollar(5), "USD");
 			result.Equals(Money.CreateDollar(5)).Should().BeTrue();
 		}
+
+        [Fact]
+        public void Plus_MixedCurrencies_ReduceToCommon()
+        {
+            Expression fiveUsd = Money.CreateDollar(5);
+            Expression tenFrancs = Money.CreateFranc(10);
+            var bank = new Bank();
+            bank.AddRate("USD", "CHF", 2);
+
+            var sum = fiveUsd.Plus(tenFrancs);
+            var usdResult = bank.Reduce(sum, "USD");
+            usdResult.Should().Be(Money.CreateDollar(10));
+
+            var chfResult = bank.Reduce(sum, "CHF");
+            chfResult.Should().Be(Money.CreateFranc(20));
+        }
 	}
 }

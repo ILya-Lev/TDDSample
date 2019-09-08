@@ -4,24 +4,26 @@ namespace TDD.MultiCurrencyMoney
 {
 	public class Sum : Expression
 	{
-		public Sum(Money augend, Money addend)
+		public Sum(Expression augend, Expression addend)
 		{
 			Augend = augend;
 			Addend = addend;
 		}
 
-		public Money Augend { get; }
-		public Money Addend { get; }
+        public Expression Augend { get; }
+		public Expression Addend { get; }
 
 		public Money Reduce(Bank bank, string targetCurrency)
-		{
-			if (Addend.Currency == Augend.Currency
-			    && Addend.Currency == targetCurrency)
-			{
-				var totalAmount = Augend.Amount + Addend.Amount;
-				return new Money(totalAmount, targetCurrency);
-			}
-			throw new NotImplementedException();
+        {
+            var reducedAugend = Augend.Reduce(bank, targetCurrency);
+            var reducedAddend = Addend.Reduce(bank, targetCurrency);
+            var totalAmount = reducedAugend.Amount +  reducedAddend.Amount;
+            return new Money(totalAmount, targetCurrency);
 		}
+
+        public Expression Plus(Expression other)
+        {
+            throw new NotImplementedException();
+        }
 	}
 }

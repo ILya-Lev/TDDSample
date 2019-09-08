@@ -16,7 +16,7 @@ namespace TDD.MultiCurrencyMoney
 		public static Money CreateFranc(int amount) => new Money(amount, "CHF");
 		public static Money CreateDollar(int amount) => new Money(amount, "USD");
 
-		public Money Times(int factor) => new Money(Amount * factor, Currency);
+		public Expression Times(int factor) => new Money(Amount * factor, Currency);
 
 		public sealed override bool Equals(object other)
 		{
@@ -29,13 +29,12 @@ namespace TDD.MultiCurrencyMoney
 			return false;
 		}
 
-		//todo: do we really want it to be here?
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
 		}
 
-		public Expression Plus(Money addend)
+		public Expression Plus(Expression addend)
 		{
 			return new Sum(this, addend);
 		}
