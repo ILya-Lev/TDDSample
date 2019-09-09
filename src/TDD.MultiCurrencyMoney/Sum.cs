@@ -25,5 +25,10 @@ namespace TDD.MultiCurrencyMoney
         {
             return new Sum(this, addend);
         }
-	}
+
+        public Expression Times(double factor)
+        {
+            return new Sum(Augend.Times(factor), Addend.Times(factor));
+        }
+    }
 }
