@@ -21,9 +21,9 @@ namespace TDD.MultiCurrencyMoney
             return new Money(totalAmount, targetCurrency);
 		}
 
-        public Expression Plus(Expression other)
+        public Expression Plus(Expression addend)
         {
-            throw new NotImplementedException();
+            return new Sum(this, addend);
         }
 	}
 }

@@ -3,6 +3,6 @@
 	public interface Expression
 	{
 		Money Reduce(Bank bank, string targetCurrency);
-        Expression Plus(Expression other);
+        Expression Plus(Expression addend);
     }
 }
