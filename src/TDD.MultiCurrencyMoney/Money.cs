@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TDD.MultiCurrencyMoney
+﻿namespace TDD.MultiCurrencyMoney
 {
     public class Money : Expression
     {
