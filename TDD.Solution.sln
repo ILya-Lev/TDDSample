@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1D7D5EFF-3B06-40A6-BC68-37D1A9E1CB15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDD.MultiCurrencyMoney", "src\TDD.MultiCurrencyMoney\TDD.MultiCurrencyMoney.csproj", "{45BD4005-A04C-482D-A85D-4181FEE6FA59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDD.MultiCurrencyMoney", "src\TDD.MultiCurrencyMoney\TDD.MultiCurrencyMoney.csproj", "{45BD4005-A04C-482D-A85D-4181FEE6FA59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6B50F7C4-A4DE-4ACA-897A-530CC99582BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDD.MultiCurrencyMoney.Tests", "test\TDD.MultiCurrencyMoney.Tests\TDD.MultiCurrencyMoney.Tests.csproj", "{29482D6B-5804-4D62-AE17-6F15CA53EAA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDD.MultiCurrencyMoney.Tests", "test\TDD.MultiCurrencyMoney.Tests\TDD.MultiCurrencyMoney.Tests.csproj", "{29482D6B-5804-4D62-AE17-6F15CA53EAA7}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TDD.TestFramework", "src\TDD.TestFramework\TDD.TestFramework.pyproj", "{AC8B203F-D35E-4611-B55F-56BFEC3945D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,8 @@ Global
 		{29482D6B-5804-4D62-AE17-6F15CA53EAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29482D6B-5804-4D62-AE17-6F15CA53EAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29482D6B-5804-4D62-AE17-6F15CA53EAA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC8B203F-D35E-4611-B55F-56BFEC3945D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC8B203F-D35E-4611-B55F-56BFEC3945D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{45BD4005-A04C-482D-A85D-4181FEE6FA59} = {1D7D5EFF-3B06-40A6-BC68-37D1A9E1CB15}
 		{29482D6B-5804-4D62-AE17-6F15CA53EAA7} = {6B50F7C4-A4DE-4ACA-897A-530CC99582BF}
+		{AC8B203F-D35E-4611-B55F-56BFEC3945D5} = {1D7D5EFF-3B06-40A6-BC68-37D1A9E1CB15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D31F213C-8FBF-420C-A83B-F773F4B9CCE5}
