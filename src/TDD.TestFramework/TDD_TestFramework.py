@@ -1,15 +1,15 @@
 class TestCase : 
 	def __init__(self, name):
 		self.methodUnderTheTest = name
-	def run(self):
-		#if hasattr(self, "setUp"):	#as TestCaseTest inherits TestCase - it does not contain the method so far
-		#	settingUp = getattr(self, "setUp")
-		#	settingUp()
+		self.resultSatistics = TestResult()	
 
+	def run(self):
 		self.setUp()
 		method = getattr(self, self.methodUnderTheTest)
+		self.resultSatistics.testStarted()
 		method()
 		self.tearDown()
+		return self.resultSatistics
 
 	def setUp(self): pass
 	def tearDown(self): pass
@@ -24,4 +24,15 @@ class WasRun(TestCase) :
 		self.log = "setUp"
 	def tearDown(self):
 		self.log += " tearDown"
+	def testBrokenMethod(self):
+	   raise Exception
+
+class TestResult: 
+	def __init__(self):
+		self.runCount = 0
 	
+	def testStarted(self):
+		self.runCount += 1
+
+	def summary(self):
+		return "%d run, 0 failed" %self.runCount
