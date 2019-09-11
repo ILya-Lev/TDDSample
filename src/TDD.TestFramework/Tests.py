@@ -2,19 +2,15 @@ from TDD_TestFramework import WasRun
 from TDD_TestFramework import TestCase
 
 class TestCaseTest(TestCase):
-	def setUp(self):
-		self.test = WasRun("testMethod")
 
-	def testRunning(self):
-		self.test.run()
-		assert (self.test.wasRun)
-	
-	def testSetUp(self):
-		self.test.run()
-		assert (self.test.wasSetUp)
+	def testTemplateMethod(self):
+		test = WasRun("testMethod")
+		
+		test.run()
+		
+		print (test.log)
+		assert (test.log == "setUp testMethod tearDown")
 
 
-
-TestCaseTest("testRunning").run()
-TestCaseTest("testSetUp").run()
+TestCaseTest("testTemplateMethod").run()
 
